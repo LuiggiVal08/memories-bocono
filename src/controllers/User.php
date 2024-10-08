@@ -2,10 +2,9 @@
 
 namespace App\Controllers;
 
-// require_once 'src/models/User.php';
-
 use App\Model\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Str;
 
 class UserController
 {
@@ -13,7 +12,7 @@ class UserController
     public function getAll()
     {
         $users = User::all();
-        return $users;
+        return ['data' => $users, 'error' => null, 'status' => 200];
     }
 
     // Obtener un usuario por ID
@@ -21,17 +20,18 @@ class UserController
     {
         try {
             $user = User::findOrFail($id);
-            return $user;
+            return ['data' => $user, 'error' => null, 'status' => 200];
         } catch (ModelNotFoundException $e) {
-            return ['error' => 'User not found'];
+            return ['data' => null, 'error' => 'User not found', 'status' => 404];
         }
     }
 
     // Crear un nuevo usuario
     public function create($data)
     {
+        $data['id'] = (string) Str::uuid();
         $user = User::create($data);
-        return $user;
+        return ['data' => $user, 'error' => null, 'status' => 201];
     }
 
     // Actualizar un usuario existente
@@ -40,9 +40,9 @@ class UserController
         try {
             $user = User::findOrFail($id);
             $user->update($data);
-            return $user;
+            return ['data' => $user, 'error' => null, 'status' => 200];
         } catch (ModelNotFoundException $e) {
-            return ['error' => 'User not found'];
+            return ['data' => null, 'error' => 'User not found', 'status' => 404];
         }
     }
 
@@ -51,10 +51,13 @@ class UserController
     {
         try {
             $user = User::findOrFail($id);
+            if ($user->role->name === 'admin') {
+                return ['data' => null, 'error' => 'Cannot delete administrators', 'status' => 403];
+            }
             $user->delete();
-            return ['message' => 'User deleted successfully'];
+            return ['data' => null, 'error' => null, 'status' => 200, 'message' => 'User deleted successfully'];
         } catch (ModelNotFoundException $e) {
-            return ['error' => 'User not found'];
+            return ['data' => null, 'error' => 'User not found', 'status' => 404];
         }
     }
 }

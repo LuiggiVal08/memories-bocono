@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Database\QueryException;
 
 $capsule = new Capsule;
 
@@ -25,9 +26,8 @@ if ($_ENV['APP_ENV'] === 'development') {
 }
 
 // Inicializar Eloquent
-$capsule->setAsGlobal();
-$capsule->bootEloquent();
-
+$capsule->setAsGlobal(); // Asignar la conexión a la variable global $capsule
+$capsule->bootEloquent(); // Inicializar el Eloquent
 
 // Función para validar la conexión
 // function validateDatabaseConnection()

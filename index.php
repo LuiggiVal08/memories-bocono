@@ -5,9 +5,9 @@ namespace App;
 require 'vendor/autoload.php';
 
 use Dotenv\Dotenv;
+use Error;
 use Exception;
-use Firebase\JWT\JWT;
-use Firebase\JWT\Key;
+
 use Flight;
 use Illuminate\Database\QueryException;
 
@@ -25,15 +25,15 @@ require_once 'src/helpers/index.php';
 //     $log->error($ex->getMessage());
 //     renderWithLayout('error', ['message' => $ex->getMessage()]);
 // });
-Flight::map('error', function (Exception $ex) {
-    global $log;
-    $log->error($ex->getMessage());
-    // Puedes personalizar el manejo de errores aquí
-    if ($ex instanceof QueryException) {
-        Flight::json(['error' => 'Error en la base de datos: ' . $ex->getMessage()], 500);
+Flight::map('error', function ($ex) {
+    // Verifica si $ex es una instancia de Exception o Error
+    if ($ex instanceof Exception || $ex instanceof Error) {
+        // Maneja la excepción o el error aquí
+        echo json_encode(['error' => $ex->getMessage()]);
     } else {
-        // Manejar cualquier otro tipo de excepción
-        Flight::json(['error' => $ex->getMessage()], 500);
+        // Manejo para otros tipos de errores
+        echo json_encode(['error' => 'An unknown error occurred']);
     }
 });
+
 Flight::start();

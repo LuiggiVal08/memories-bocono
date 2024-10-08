@@ -5,12 +5,12 @@ namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
-class User extends Model
+class Category extends Model
 {
-    protected $table = 'users';
-    protected $fillable = ['id', 'name', 'lastname', 'email', 'username', 'password', 'role_id'];
+    protected $table = 'categories';
+    protected $fillable = ['id', 'nombre'];
     public $incrementing = false;
-    protected $keyType = 'string'; // UUID es un string
+    protected $keyType = 'string';
 
     protected static function boot()
     {
@@ -22,18 +22,13 @@ class User extends Model
         });
     }
 
-    public function role()
-    {
-        return $this->belongsTo(Role::class, 'role_id');
-    }
-
     public function articles()
     {
-        return $this->hasMany(Article::class, 'usuario_id');
+        return $this->hasMany(Article::class, 'categoria_id');
     }
 
     public function comments()
     {
-        return $this->hasMany(Comment::class, 'usuario_id');
+        return $this->hasMany(Comment::class, 'categoria_id');
     }
 }

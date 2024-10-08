@@ -6,7 +6,7 @@ $dotenv->load();
 
 use Illuminate\Database\Capsule\Manager as Capsule;
 
-$_ENV['APP_ENV'] = 'development';
+// $_ENV['APP_ENV'] = 'development';
 $capsule = new Capsule;
 // Configura la conexión según el entorno
 echo $_ENV['APP_ENV'];

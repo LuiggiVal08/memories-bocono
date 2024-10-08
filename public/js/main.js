@@ -1,12 +1,7 @@
-import { Format } from "./helpers/Format";
-import { submitLogin } from "./login";
+// import { Format } from "./helpers/Format";
+// import { submitLogin } from "./login";
 // import alpine from './libraries/alpinejs.min.js'
-document.getElementById('formLogin').addEventListener('submit', submitLogin)
 
-window.submitLogin = submitLogin
-
-document.getElementById('user').addEventListener('input', (e) => Format.formatInput(e, 'username'))
-document.getElementById('pass').addEventListener('input', (e) => Format.formatInput(e, 'password'))
 // import { clickMeButton } from "./test";
 // // document.
 // const $btn = document.getElementById('btn');

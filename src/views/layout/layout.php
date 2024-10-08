@@ -16,10 +16,12 @@
 </head>
 
 <body>
-    <div id="root" class="relative">
+    <div id="portal" class=""></div>
+
+    <div id="root" class="relative bg-secondary bg-[url(/images/laguna.jpg)] bg-no-repeat bg-fixed bg-center bg-cover ">
         <?= $header ?>
 
-        <main class="bg-secondary bg-[linear-gradient(to_right,#00000040,#00595440),linear-gradient(93deg,#00595440,#00595440),url(/images/fondo.png)] bg-no-repeat bg-fixed bg-center bg-cover ">
+        <main class="">
 
             <div class="w-full h-full  ">
 

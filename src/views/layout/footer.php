@@ -1,6 +1,6 @@
-<footer class="bg-white dark:bg-gray-900">
+<footer class="bg-white/20 backdrop-blur-md dark:bg-gray-900">
     <div class="container px-6 py-8 mx-auto">
-        <div class="flex flex-col items-center text-center">
+        <!-- <div class="flex flex-col items-center text-center">
 
             <div class="flex flex-wrap justify-center mt-6 -mx-4">
                 <a href="#" class="mx-4 text-sm text-gray-600 transition-colors duration-300 hover:text-tertiary-100 dark:text-gray-300 dark:hover:text-blue-400" aria-label="Reddit"> Inicio </a>
@@ -18,13 +18,13 @@
 
         </div>
 
-        <hr class="my-6 border-gray-200 md:my-10 dark:border-gray-700" />
+        <hr class="my-6 border-gray-200 md:my-10 dark:border-gray-700" /> -->
 
         <div class="flex flex-col items-center sm:flex-row sm:justify-between">
-            <p class="text-sm text-gray-500 dark:text-gray-300">&copy; Copyright 2024. All Rights Reserved.</p>
+            <p class="text-sm text-white dark:text-gray-300">&copy; Copyright 2024. All Rights Reserved.</p>
 
             <div class="flex -mx-2">
-                <a href="#" class="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400" aria-label="Reddit">
+                <a href="#" class="mx-2 text-white transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400" aria-label="Reddit">
                     <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -33,7 +33,7 @@
                     </svg>
                 </a>
 
-                <a href="#" class="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400" aria-label="Facebook">
+                <a href="#" class="mx-2 text-white transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400" aria-label="Facebook">
                     <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -42,7 +42,7 @@
                     </svg>
                 </a>
 
-                <a href="#" class="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400" aria-label="Github">
+                <a href="#" class="mx-2 text-white transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400" aria-label="Github">
                     <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path

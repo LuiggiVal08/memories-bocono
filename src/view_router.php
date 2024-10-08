@@ -4,11 +4,17 @@ Flight::route('/', function () {
     renderWithLayout('index', ['title' => 'Inicio']);
 });
 
-Flight::route('/login/', function () {
+Flight::route('/auth/', function () {
     if (isset($_SESSION['user'])) {
-        Flight::redirect('/casagro_new');
+        Flight::redirect('/');
     }
-    renderWithLayout('login', ['title' => 'Ingresar']);
+    renderWithLayout('auth', ['title' => 'Ingresar']);
+});
+Flight::route('/profile/', function () {
+    if (!isset($_SESSION['user'])) {
+        Flight::redirect('/auth');
+    }
+    renderWithLayout('profile', ['title' => 'Ingresar']);
 });
 
 
